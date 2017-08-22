@@ -6,6 +6,7 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
+    @showtimes = Showtime.all.where("movie_id = #{@movie.id}")
   end
 
 end

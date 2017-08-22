@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 20170821203436) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -26,6 +27,8 @@ ActiveRecord::Schema.define(version: 20170821203436) do
 
   create_table "movie_theatres", force: :cascade do |t|
     t.string "name"
+    t.string "thumbnail"
+    t.string "full_image"
     t.integer "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -34,6 +37,8 @@ ActiveRecord::Schema.define(version: 20170821203436) do
   create_table "movies", force: :cascade do |t|
     t.string "name"
     t.integer "genre_id"
+    t.string "thumbnail"
+    t.string "full_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

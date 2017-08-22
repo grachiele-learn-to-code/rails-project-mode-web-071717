@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170821203436) do
+ActiveRecord::Schema.define(version: 20170822200458) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
-    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -27,8 +26,6 @@ ActiveRecord::Schema.define(version: 20170821203436) do
 
   create_table "movie_theatres", force: :cascade do |t|
     t.string "name"
-    t.string "thumbnail"
-    t.string "full_image"
     t.integer "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -37,8 +34,6 @@ ActiveRecord::Schema.define(version: 20170821203436) do
   create_table "movies", force: :cascade do |t|
     t.string "name"
     t.integer "genre_id"
-    t.string "thumbnail"
-    t.string "full_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -48,6 +43,16 @@ ActiveRecord::Schema.define(version: 20170821203436) do
     t.string "start_time"
     t.integer "movie_id"
     t.integer "movie_theatre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "username"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

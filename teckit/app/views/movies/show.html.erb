@@ -1,11 +1,11 @@
 <h1><%= @movie.name %></h1>
 
-<% if @showtimes.count > 0 %>
-  <% @showtimes.each do |showtime| %>
-    <ul>
-      <li> <b>Location:</b> <%= showtime.movie_theatre.name %> <br> <b>Time:</b> <%= showtime.start_time %> <br> <b>Date:</b> <%= showtime.show_date %> </li>
-    </ul>
-  <% end %>
+<% if !(@showtimes.empty?) %>
+  <ol>
+    <% @showtimes.each do |showtime| %>
+        <li> <b>Location:</b> <%= link_to showtime.movie_theatre.name, movie_theatre_path(showtime.movie_theatre) %> <br> <b>Date:</b> <%= showtime.show_date %><br> <b>Showtime:</b> <%= showtime.start_time %> </li>
+    <% end %>
+  </ol>
 <% else %>
   <%= "There are no showtimes available for this movie" %>
 <% end %>

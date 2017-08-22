@@ -1,8 +1,6 @@
-<h1> Welcome to Teckit!</h1><br />
-<h2>Search By:</h2><br />
-<h3>City</h3>
-<%= form_tag '/cities/search_result', method: 'get'  do%>
-<%= select_tag "City", options_for_select(City.all.map { |city| city.name}) %>
-<br />
-<input type='submit' />
-<% end %>
+<h1>Welcome to Tikcet!</h1><br />
+<h2>See all:</h2><br />
+<%= link_to "Cities", cities_path %>
+<%= link_to "Genres", genres_path %>
+<%= link_to "Movie Theatres", movie_theatres_path %>
+<%= link_to "Movies", movies_path %>

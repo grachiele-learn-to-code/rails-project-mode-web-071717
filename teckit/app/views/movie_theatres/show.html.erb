@@ -1,1 +1,17 @@
 <h1><%= @movie_theatre.name %></h1>
+<h2>Playing Movies</h2>
+<% if !@times.empty? %>
+  <ol>
+    <% @times.each do |time| %>
+      <li>
+        <h3>
+          Title: <%= link_to "#{time.movie.name}", movie_path(time.movie_id)  %><br />
+          Date: <%= time.show_date %><br />
+          Showtime: <%= time.start_time %><br />
+        </h3>
+      </li>
+    <% end %>
+  </ol>
+<% else %>
+  <h1>No Current Showtimes Avaliable. Coming Soon!</h1>
+<% end %>

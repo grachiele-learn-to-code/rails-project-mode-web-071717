@@ -1,1 +1,9 @@
 <h1><%= @city.name %></h1>
+<h2>Avaliable Theatres</h2>
+<ul>
+  <% @theatres.each do |theatre| %>
+    <li>
+      <h3><%= theatre.name %></h3> <%= button_to "See Available Movies", movie_theatre_path(theatre), method: :get  %>
+    </li><br />
+  <% end %>
+</ul>

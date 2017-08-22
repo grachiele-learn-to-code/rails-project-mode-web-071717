@@ -1,9 +1,12 @@
 <h1><%= @movie.name %></h1>
-
+<img src=<%= @movie.full_image %> height="1000" width="1000">
 <% if !(@showtimes.empty?) %>
   <ol>
     <% @showtimes.each do |showtime| %>
-        <li> <b>Location:</b> <%= link_to showtime.movie_theatre.name, movie_theatre_path(showtime.movie_theatre) %> <br> <b>Date:</b> <%= showtime.show_date %><br> <b>Showtime:</b> <%= showtime.start_time %> </li>
+        <img src=<%= showtime.movie_theatre.thumbnail%> height="200" width="200">
+        <li><b>Location:</b> <%= link_to showtime.movie_theatre.name, movie_theatre_path(showtime.movie_theatre) %> <br>
+          <b>Date:</b> <%= showtime.show_date %><br>
+          <b>Showtime:</b> <%= showtime.start_time %> </li>
     <% end %>
   </ol>
 <% else %>

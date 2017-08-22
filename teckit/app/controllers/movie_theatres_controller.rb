@@ -1,7 +1,8 @@
 class MovieTheatresController < ApplicationController
 
   def index
-    @movie_theatres = MovieTheatre.all
+    @items = MovieTheatre.all
+    render :template => 'shared/index'
   end
 
   def show

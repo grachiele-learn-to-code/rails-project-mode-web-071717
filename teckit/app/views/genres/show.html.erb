@@ -2,8 +2,9 @@
 
 <h2>Movies:</h2>
 
-<ul>
+<ol>
   <% @movies.each do |movie| %>
-    <li> <%= link_to movie.name, movie_path(movie) %> </li>
+    <img src=<%= movie.thumbnail%> height="200" width="200">
+    <h3><li> <%= link_to movie.name, movie_path(movie) %> </li></h3>
   <% end %>
-</ul>
+</ol>

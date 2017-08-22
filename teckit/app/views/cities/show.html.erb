@@ -1,9 +1,11 @@
 <h1><%= @city.name %></h1>
+<img src=<%= @city.full_image%> height="1000" width="1000">
 <h2>Avaliable Theatres</h2>
-<ul>
+<ol>
   <% @theatres.each do |theatre| %>
     <li>
+      <img src=<%= theatre.thumbnail%> height="200" width="200">
       <h3><%= theatre.name %></h3> <%= button_to "See Available Movies", movie_theatre_path(theatre), method: :get  %>
     </li><br />
-  <% end %>
-</ul>
+    <% end %>
+</ol>

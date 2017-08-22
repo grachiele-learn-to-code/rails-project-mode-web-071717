@@ -2,6 +2,7 @@
 <ul>
   <% @movie_theatres.each do |movie_theatre| %>
   <li>
+    <img src=<%= movie_theatre.thumbnail%> height="42" width="42">
     <%= link_to movie_theatre.name, movie_theatre_path(movie_theatre) %>
   </li>
 </ul>

@@ -14,7 +14,8 @@ ActiveRecord::Schema.define(version: 20170821203436) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
-    t.string "image"
+    t.string "thumbnail"
+    t.string "full_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

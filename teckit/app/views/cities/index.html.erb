@@ -1,6 +1,7 @@
 <h1>Cities</h1>
-<ul>
+<ol>
   <% @cities.each do |city| %>
+  <img src=<%= city.thumbnail%> height="200" width="200">
   <li><%= link_to city.name, city_path(city) %></li><br />
 <% end %>
-</ul>
+</ol>

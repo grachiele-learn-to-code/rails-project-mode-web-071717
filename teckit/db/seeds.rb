@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 genres = %w(Comedy Horror Action Romance Drama War Animation)
 
 genres.each do |genre|
@@ -13,20 +14,20 @@ genres.each do |genre|
 end
 
 require 'ffaker'
-200.times do
+100.times do
    Movie.create(name: FFaker::Movie.title, genre_id: Genre.all.sample.id)
 end
 
-200.times do
+10.times do
   City.create(name: FFaker::Address.city)
 end
 
-200.times do
+50.times do
   theatre_option = %w(Theatre Cinemas)
   MovieTheatre.create(name: FFaker::Company.name + " " + theatre_option.sample, city_id: City.all.sample.id)
 end
 
-500.times do
+1000.times do
   start_time = "#{rand(1..24)}:#{rand(6)}#{rand(10)}"
   show_date = "#{rand(1..12)}/#{rand(28)}/#{rand(2017..2020)}"
   Showtime.create(start_time: start_time, movie_id: Movie.all.sample.id, movie_theatre_id: MovieTheatre.all.sample.id, show_date: show_date )

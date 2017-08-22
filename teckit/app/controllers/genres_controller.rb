@@ -1,7 +1,8 @@
 class GenresController < ApplicationController
 
   def index
-    @genres = Genre.all
+    @items = Genre.all
+    render :template => 'shared/index'
   end
 
   def show

@@ -1,0 +1,8 @@
+<h1> Welcome to Teckit!</h1><br />
+<h2>Search By:</h2><br />
+<h3>City</h3>
+<%= form_tag '/cities/search_result', method: 'get'  do%>
+<%= select_tag "City", options_for_select(City.all.map { |city| city.name}) %>
+<br />
+<input type='submit' />
+<% end %>

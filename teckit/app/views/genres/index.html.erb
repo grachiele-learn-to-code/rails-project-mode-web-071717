@@ -2,7 +2,7 @@
 <ol>
   <% @genres.each do |genre| %>
   <li>
-    <%= link_to genre.name, genre_path(genre) %>
+    <h3><%= link_to genre.name, genre_path(genre) %></h3>
   </li>
+  <% end %>
 </ol>
-<% end %>

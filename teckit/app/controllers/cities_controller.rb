@@ -1,7 +1,8 @@
 class CitiesController < ApplicationController
 
   def index
-    @cities = City.all
+    @items = City.all
+    render :template => 'shared/index'
   end
 
   def show

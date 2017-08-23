@@ -4,7 +4,7 @@
   <ol>
     <% @showtimes.each do |showtime| %>
         <img src=<%= showtime.movie_theatre.thumbnail%> height="200" width="200">
-        <li><b>Location:</b> <%= link_to showtime.movie_theatre.name, movie_theatre_path(showtime.movie_theatre) %> <br>
+        <li><b>Location:</b> <%= link_to showtime.movie_theatre.name, "/movietheatres/#{showtime.movie_theatre.id}" %> <br>
           <b>Date:</b> <%= showtime.show_date %><br>
           <b>Showtime:</b> <%= showtime.start_time %> </li>
     <% end %>

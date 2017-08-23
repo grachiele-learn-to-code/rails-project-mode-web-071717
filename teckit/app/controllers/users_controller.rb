@@ -10,6 +10,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path
     else
+      flash[:message] = "One or more fields is invalid."
       render :new
     end
   end

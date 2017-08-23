@@ -18,6 +18,8 @@ class UsersController < ApplicationController
     if is_current_user? == false
       redirect_to ('/422')
     end
+    @user = User.find(session[:user_id])
+    @tickets = Ticket.all.select { |ticket| ticket.user_id == @user.id}
   end
 
   def edit

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :cities, :genres, :movies, only: [:index, :show]
   resources :users
+  resources :tickets, only: [:new, :create]
 
   root to: 'welcome#index'
   get '/movietheatres', to: 'movie_theatres#index'

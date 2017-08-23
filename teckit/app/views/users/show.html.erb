@@ -1,1 +1,13 @@
-<h1>This is the user show page</h1>
+<h1><%= @user.first_name %>'s Ticket Page!</h1>
+<ol>
+  <% @tickets.each do |ticket| %>
+  <% showtime =  Showtime.find(ticket.showtime_id) %>
+  <% theatre = MovieTheatre.find(showtime.movie_theatre_id) %>
+    <b><li>
+      Movie: <i> <%= showtime.movie.name %> </i> <br />
+      Movie Theatre: <%= theatre.name %><br />
+      Played at: <%= showtime.start_time %><br />
+      Date: <%= showtime.show_date %><br />
+    </li></b><br />
+  <% end %>
+</ol>

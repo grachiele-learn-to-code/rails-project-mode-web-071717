@@ -1,16 +1,24 @@
 <h1><%= @movie_theatre.name %></h1>
 <img src=<%= @movie_theatre.full_image%> height="1000" width="1000">
 <h2>Playing Movies</h2>
-<% if !@times.empty? %>
+<% if !@showtimes.empty? %>
   <ol>
-    <% @times.each do |time| %>
+    <% @showtimes.each do |showtime| %>
       <li>
-        <img src=<%= time.movie.thumbnail%> height="200" width="200">
-        <h3>
-          Title: <%= link_to "#{time.movie.name}", movie_path(time.movie_id)  %><br />
-          Date: <%= time.show_date %><br />
-          Showtime: <%= time.start_time %><br />
-        </h3>
+        <img src=<%= showtime.movie.thumbnail%> height="200" width="200"><br /> 
+        <b>Title:</b> <%= link_to "#{showtime.movie.name}", movie_path(showtime.movie_id)  %><br />
+        <b>Date:</b> <%= showtime.show_date %><br />
+        <b>Showtime:</b> <%= showtime.start_time %><br />
+        <b>Tickets Left:</b> <%= showtime.tickets_left %>
+        <% if showtime.tickets_left > 0 %>
+          <%= form_for :ticket, options = {url: '/tickets', method: 'post'}  do |f| %>
+            <%= f.hidden_field :user_id, :value => session[:user_id]%>
+            <%= f.hidden_field :showtime_id, :value => showtime.id %>
+            <%= f.submit "Purchase Ticket" %>
+          <% end %>
+        <% else %>
+          <p>There's no more tickets left for this movie!</p>
+        <% end %>
       </li>
     <% end %>
   </ol>

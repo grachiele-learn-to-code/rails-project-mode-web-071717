@@ -9,5 +9,5 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @showtimes = Showtime.all.where("movie_id = #{@movie.id}")
   end
-
+  
 end

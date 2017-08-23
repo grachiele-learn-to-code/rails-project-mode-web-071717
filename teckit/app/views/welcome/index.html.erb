@@ -1,8 +1,63 @@
 <h1><%= flash[:message] %></h1>
-<img src=<%= City.all.sample.thumbnail%> height="200" width="200">
+
+<div class="ui four doubling cards">
+  <div class="card">
+    <a class="ui fluid image" href="/cities" >
+      <img src=<%= City.all.sample.thumbnail%> height="200" >
+    </a>
+    <div class="content">
+      <div class="ui centered header">Cities</div>
+      <div class="description">
+       <b><p>Take a trip for a show</p></b>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <a class="ui fluid image" href="/movietheatres" >
+      <img src=<%= MovieTheatre.all.sample.thumbnail%> height="200" >
+    </a>
+    <div class="content">
+      <div class="ui centered header">Movie Theatres</div>
+      <div class="description">
+       <b><p>Come for the experience</p></b>
+       <b><p> stay for the snacks </p></b>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <a class="ui fluid image" href="/movies" >
+      <img src=<%= Movie.all.sample.thumbnail%> height="200" >
+    </a>
+    <div class="content">
+      <div class="ui centered header">Movies</div>
+      <div class="description">
+       <b><p>Find that perfect adventure </p></b>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <a class="ui fluid image" href="/genres" >
+      <img src=<%= Movie.all.sample.thumbnail%> height="200" >
+    </a>
+    <div class="content">
+      <div class="ui centered header">Genres</div>
+      <div class="description">
+       <b><p>What's your category?</p></b>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- <img src=<%= City.all.sample.thumbnail%> height="200" >
 <h3><%= link_to "Cities", cities_path %><br /></h3>
-<img src=<%= MovieTheatre.all.sample.thumbnail%> height="200" width="200">
+<img src=<%= MovieTheatre.all.sample.thumbnail%> height="200" >
 <h3><%= link_to "Movie Theatres", movietheatres_path %><br /></h3>
 <img src=<%= Movie.all.sample.thumbnail%> height="200" width="200">
 <h3><%= link_to "Movies", movies_path %><br /></h3>
-<h3><%= link_to "Genres", genres_path %><br /></h3>
+<h3><%= link_to "Genres", genres_path %><br /></h3> -->

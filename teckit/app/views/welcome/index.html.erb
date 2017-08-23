@@ -1,9 +1,10 @@
 <h1>Welcome to Tekcít!</h1><br />
-<%= link_to "Sign In", signin_path %><br>
-<%= link_to "Sign Up", signup_path %><br>
 <% if logged_in? %>
-  <p>Welcome, <%= User.find(session[:user_id]).first_name %>! </p>
+  "Welcome, <%= link_to  #{User.find(session[:user_id]).first_name}!", user_path(session[:user_id]) %>
   <%= link_to "Sign Out", signout_path  %>
+  <% else %>
+  <%= link_to "Sign In", signin_path %><br>
+  <%= link_to "Sign Up", signup_path %><br>
 <% end %>
 <h2>See all:</h2><br />
 <img src=<%= City.all.sample.thumbnail%> height="200" width="200">

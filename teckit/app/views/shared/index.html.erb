@@ -1,7 +1,9 @@
 <h1><%= "#{@items.first.class.to_s.pluralize }"%></h1>
 <ol>
   <% @items.each do |item| %>
-  <img src=<%= item.thumbnail%> height="200" width="200">
-  <li><%= link_to item.name, "/#{item.class.to_s.downcase.pluralize}/#{item.id}" %></li><br />
-<% end %>
+    <% if item.class.method_defined? :thumbnail %>
+      <img src=<%= item.thumbnail%> height="200" width="200">
+    <% end %>
+      <li><%= link_to item.name, "/#{item.class.to_s.downcase.pluralize}/#{item.id}" %></li><br />
+    <% end %>
 </ol>

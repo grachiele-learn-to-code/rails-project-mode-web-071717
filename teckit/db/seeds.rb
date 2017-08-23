@@ -5,6 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Genre.destroy_all
+City.destroy_all
+MovieTheatre.destroy_all
+Showtime.destroy_all
 
 
 genres = %w(Comedy Horror Action Romance Drama War Animation)

@@ -5,7 +5,7 @@
   <% @theatres.each do |theatre| %>
     <li>
       <img src=<%= theatre.thumbnail%> height="200" width="200">
-      <h3><%= theatre.name %></h3> <%= button_to "See Available Movies", movie_theatre_path(theatre), method: :get  %>
+      <h3><%= theatre.name %></h3> <%= button_to "See Available Movies", "/movietheatres/#{theatre.id}", method: :get  %>
     </li><br />
     <% end %>
 </ol>

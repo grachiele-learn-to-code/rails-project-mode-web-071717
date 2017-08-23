@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :authentication_required
 
   def new
     @user = User.new

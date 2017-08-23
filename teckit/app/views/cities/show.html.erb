@@ -1,11 +1,24 @@
 <h1><%= @city.name %></h1>
-<img src=<%= @city.full_image%> height="1000" width="1000">
+<img src=<%= @city.full_image%> height="500" width="500">
+
 <h2>Avaliable Theatres</h2>
-<ol>
-  <% @theatres.each do |theatre| %>
-    <li>
-      <img src=<%= theatre.thumbnail%> height="200" width="200">
-      <h3><%= theatre.name %></h3> <%= button_to "See Available Movies", "/movietheatres/#{theatre.id}", method: :get  %>
-    </li><br />
-    <% end %>
-</ol>
+
+<div class="ui grid">
+  <div class="four wide column">
+    <div class="ui cards">
+      <% @theatres.each do |theatre| %>
+      <div class="card">
+          <div class="image">
+            <img src=<%= theatre.thumbnail%> height="200" width="200">
+          </div>
+          <div class="ui center aligned extra content">
+            <div class="header"><br />
+              <%= theatre.name %>
+            </div>
+          </div>
+          <%= button_to "See Available Movies", "/movietheatres/#{theatre.id}", {method: :get, class: "fluid ui teal button"}  %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

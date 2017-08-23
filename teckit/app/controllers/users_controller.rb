@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
+      flash[:message] = "Welcome to Teckít!"
       redirect_to root_path
     else
       flash[:message] = "One or more fields is invalid."

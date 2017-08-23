@@ -1,6 +1,6 @@
 <h1>Welcome to Tekcít!</h1><br />
 <% if logged_in? %>
-  Welcome, <%= link_to  "#{User.find(session[:user_id]).first_name}!", user_path(session[:user_id]) %><br>
+  Welcome, <%= link_to "#{User.find(session[:user_id]).first_name}!", user_path(session[:user_id]) %><br />
   <%= link_to "Sign Out", signout_path  %>
   <% else %>
   <%= link_to "Sign In", signin_path %><br>

@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :authentication_required
 
   def new
     @user = User.new
@@ -8,11 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      # byebug
-      if session[:user_id]
-        session.delete(:user_id)
-        session[:user_id] = @user.id
-      end
+      session[:user_id] = @user.id
       redirect_to root_path
     else
       render :new

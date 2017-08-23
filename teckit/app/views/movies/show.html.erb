@@ -8,14 +8,16 @@
           <b>Date:</b> <%= showtime.show_date %><br>
           <b>Showtime:</b> <%= showtime.start_time %><br />
           <b>Tickets available:</b> <%= showtime.tickets_left %>
-          <% if showtime.tickets_left > 0 %>
-            <%= form_for :ticket, options = {url: '/tickets', method: 'post'}  do |f| %>
-              <%= f.hidden_field :user_id, :value => session[:user_id]%>
-              <%= f.hidden_field :showtime_id, :value => showtime.id %>
-              <%= f.submit "Purchase Ticket" %>
+          <% if logged_in? %>
+            <% if showtime.tickets_left > 0 %>
+              <%= form_for :ticket, options = {url: '/tickets', method: 'post'}  do |f| %>
+                <%= f.hidden_field :user_id, :value => session[:user_id]%>
+                <%= f.hidden_field :showtime_id, :value => showtime.id %>
+                <%= f.submit "Purchase Ticket" %>
+              <% end %>
+            <% else %>
+              <p>There's no more tickets left for this movie!</p>
             <% end %>
-          <% else %>
-            <p>There's no more tickets left for this movie!</p>
           <% end %>
         </li>
     <% end %>

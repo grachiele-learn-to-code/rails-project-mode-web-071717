@@ -4,10 +4,10 @@
 <h2>Avaliable Theatres</h2>
 
 <div class="ui grid">
-  <div class="four wide column">
-    <div class="ui cards">
-      <% @theatres.each do |theatre| %>
-      <div class="card">
+  <div class="ui cards">
+    <% @theatres.each do |theatre| %>
+      <div class="four wide column">
+        <div class="card">
           <div class="image">
             <img src=<%= theatre.thumbnail%> height="200" width="200">
           </div>
@@ -18,7 +18,7 @@
           </div>
           <%= button_to "See Available Movies", "/movietheatres/#{theatre.id}", {method: :get, class: "fluid ui teal button"}  %>
       </div>
-      <% end %>
     </div>
+      <% end %>
   </div>
 </div>

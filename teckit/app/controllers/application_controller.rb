@@ -12,4 +12,8 @@ class ApplicationController < ActionController::Base
     session[:user_id]
   end
 
+  def is_current_user?
+    params[:id].to_i == session[:user_id]
+  end
+
 end

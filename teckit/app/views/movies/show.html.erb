@@ -1,27 +1,39 @@
-<h1><%= @movie.name %></h1>
-<img src=<%= @movie.full_image %> height="500" width=100%>
-<% if !(@showtimes.empty?) %>
-  <ol>
-    <% @showtimes.each do |showtime| %>
-        <img src=<%= showtime.movie_theatre.thumbnail%> height="200" width="200">
-        <li><b>Location:</b> <%= link_to showtime.movie_theatre.name, "/movietheatres/#{showtime.movie_theatre.id}" %> <br>
-          <b>Date:</b> <%= showtime.show_date %><br>
-          <b>Showtime:</b> <%= showtime.start_time %><br />
-          <b>Tickets available:</b> <%= showtime.tickets_left %>
-          <% if logged_in? %>
-            <% if showtime.tickets_left > 0 %>
-              <%= form_for :ticket, options = {url: '/tickets', method: 'post'}  do |f| %>
-                <%= f.hidden_field :user_id, :value => session[:user_id]%>
-                <%= f.hidden_field :showtime_id, :value => showtime.id %>
-                <%= f.submit "Purchase Ticket" %>
+<img src=<%= @movie.full_image %> height="500" width="100%">
+<h1 align="center"><%= @movie.name %></h1>
+
+<div class="ui four centered doubling cards">
+  <% if !(@showtimes.empty?) %>
+      <% @showtimes.each do |showtime| %>
+      <div class="ui fluid card">
+          <img src=<%= showtime.movie_theatre.thumbnail%> height="200">
+          <div class="content">
+            <p class="ui centered header"><%= showtime.movie_theatre.name %></p>
+            <b>Date:</b> <%= showtime.show_date %><br>
+            <b>Showtime:</b> <%= showtime.start_time %><br />
+            <% if logged_in? %>
+          </div>
+              <% if showtime.tickets_left > 0 %>
+              <div class="ui labeled button" tabindex="0">
+                <%= form_for :ticket, options = {url: '/tickets', method: 'post'}  do |f| %>
+                  <%= f.hidden_field :user_id, :value => session[:user_id]%>
+                  <%= f.hidden_field :showtime_id, :value => showtime.id %>
+                  <div class="ui labeled button">
+                    <%= f.submit "Purchase Ticket", class: "ui black button" %>
+                    <%= f.label "Tickets Left: #{showtime.tickets_left}", class: "ui basic label" %>
+                  </div>
+                <% end %>
+              </div>
+              <% else %>
+                <p class="ui centered header">There's no more tickets left for this movie!</p>
               <% end %>
-            <% else %>
-              <p>There's no more tickets left for this movie!</p>
             <% end %>
-          <% end %>
-        </li>
-    <% end %>
-  </ol>
-<% else %>
-  <%= "There are no showtimes available for this movie" %>
-<% end %>
+      <% end %>
+    </div>
+  <% else %>
+  <div class="ui fluid card">
+    <div class="ui centered header">
+      <%= "There are no showtimes available for this movie" %>
+    </div>
+  </div>
+  <% end %>
+</div>

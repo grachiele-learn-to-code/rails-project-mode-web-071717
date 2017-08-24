@@ -1,13 +1,21 @@
-<h1><%= @user.first_name %>'s Ticket Page!</h1>
-<ol>
-  <% @tickets.each do |ticket| %>
-  <% showtime =  Showtime.find(ticket.showtime_id) %>
-  <% theatre = MovieTheatre.find(showtime.movie_theatre_id) %>
-    <b><li>
-      Movie: <i> <%= showtime.movie.name %> </i> <br />
-      Movie Theatre: <%= theatre.name %><br />
-      Played at: <%= showtime.start_time %><br />
-      Date: <%= showtime.show_date %><br />
-    </li></b><br />
+<h1 align="center"><%= @user.first_name %>'s Ticket Page!</h1>
+
+<div class="ui four centered doubling cards">
+  <% if !@user.tickets.empty? %>
+    <% @tickets.each do |ticket| %>
+    <div class="ui fluid card">
+      <% showtime =  Showtime.find(ticket.showtime_id) %>
+      <% theatre = MovieTheatre.find(showtime.movie_theatre_id) %>
+      <img src=<%= showtime.movie.thumbnail%> height="200" >
+      <div class="content">
+          <p class="ui centered header"><%= showtime.movie.name %></p>
+          <b>Movie Theatre:</b> <%= theatre.name %><br />
+          <b>Played at:</b> <%= showtime.start_time %><br />
+          <b>Date:</b> <%= showtime.show_date %><br />
+      </div>
+    </div>
+    <% end %>
+  <% else %>
+    <p class="ui centered header">You have no tickets! Go buy some!</p>
   <% end %>
-</ol>
+</div>

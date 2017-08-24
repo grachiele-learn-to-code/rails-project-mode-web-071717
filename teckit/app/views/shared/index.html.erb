@@ -1,6 +1,6 @@
 <h1><%= "#{@items.first.class.to_s.pluralize }"%></h1><br />
 
-<div class="ui four doubling cards">
+<div class="ui four centered doubling cards">
   <% @items.order(:name).each do |item| %>
   <a class="card" href="/<%= item.class.to_s.downcase.pluralize %>/<%= item.id %>" >
     <% if item.class.method_defined? :thumbnail %>

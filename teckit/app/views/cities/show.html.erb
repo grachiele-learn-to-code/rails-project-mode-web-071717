@@ -9,9 +9,9 @@
         <div class="content">
           <div class="ui centered header">
             <%= theatre.name %>
+            <%= button_to "See Available Movies", "/movietheatres/#{theatre.id}", {method: :get, class: "fluid ui black button"}  %>
           </div>
         </div>
-          <%= button_to "See Available Movies", "/movietheatres/#{theatre.id}", {method: :get, class: "fluid ui black button"}  %>
       </div>
     <% end %>
 </div>

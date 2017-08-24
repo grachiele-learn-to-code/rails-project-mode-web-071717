@@ -1,4 +1,4 @@
-<img src=<%= @movie.full_image %> height="500" width="100%">
+<img class="ui centered bordered rounded image" src=<%= @movie.full_image%> height="500" width="95%" >
 <h1 align="center"><%= @movie.name %></h1>
 
 <div class="ui four centered doubling cards">
@@ -11,7 +11,6 @@
             <b>Date:</b> <%= showtime.show_date %><br>
             <b>Showtime:</b> <%= showtime.start_time %><br />
             <% if logged_in? %>
-          </div>
               <% if showtime.tickets_left > 0 %>
               <div class="ui labeled button" tabindex="0">
                 <%= form_for :ticket, options = {url: '/tickets', method: 'post'}  do |f| %>
@@ -27,8 +26,9 @@
                 <p class="ui centered header">There's no more tickets left for this movie!</p>
               <% end %>
             <% end %>
+          </div>
+          </div>
       <% end %>
-    </div>
   <% else %>
   <div class="ui fluid card">
     <div class="ui centered header">

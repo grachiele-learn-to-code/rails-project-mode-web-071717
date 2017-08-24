@@ -85,15 +85,15 @@
 </head>
 <body>
 
-  <div class="ui middle aligned center aligned grid">
+  <div class="ui center aligned grid">
     <div class="column">
       <div class="content">
       </div>
         <%= form_tag signin_path, class: "ui large form" do %>
           <div class="ui stacked segment">
-            <h2 class="ui teal image header">
+            <h1 class="ui black image header">
               Tekcít
-            </h2><br />
+            </h1><br />
             <label><b>Username:</b></label><br>
             <div class="field">
               <div class="ui left icon input">
@@ -108,7 +108,7 @@
                 <%= password_field_tag 'user[password]', nil, required: true %><br>
             </div>
           </div>
-          <%= submit_tag "Sign In", class: "ui fluid large teal submit button" %>
+          <%= submit_tag "Sign In", class: "ui fluid large black submit button" %>
         <% end %>
         <div class="ui message">
           New to us? <a href="<%= signup_path %>">Sign Up</a>

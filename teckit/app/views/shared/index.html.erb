@@ -6,7 +6,7 @@
     <% if item.class.method_defined? :thumbnail %>
       <img src=<%= item.thumbnail%> height="200">
     <% else %>
-      #Genre currently has no thumbnails
+      <!-- Genre currently has no thumbnails -->
       <img src=<%= Movie.all.sample.thumbnail%> height="200" >
     <% end %>
     <div class="content">

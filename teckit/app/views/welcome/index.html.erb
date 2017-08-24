@@ -1,16 +1,41 @@
-<h1>Welcome to Tekcít!</h1><br />
-<% if logged_in? %>
-  Welcome, <%= link_to "#{User.find(session[:user_id]).first_name}!", user_path(session[:user_id]) %><br />
-  <%= link_to "Sign Out", signout_path  %>
-  <% else %>
-  <%= link_to "Sign In", signin_path %><br>
-  <%= link_to "Sign Up", signup_path %><br>
-<% end %>
-<h2>See all:</h2><br />
-<img src=<%= City.all.sample.thumbnail%> height="200" width="200">
-<h3><%= link_to "Cities", cities_path %><br /></h3>
-<img src=<%= MovieTheatre.all.sample.thumbnail%> height="200" width="200">
-<h3><%= link_to "Movie Theatres", movietheatres_path %><br /></h3>
-<img src=<%= Movie.all.sample.thumbnail%> height="200" width="200">
-<h3><%= link_to "Movies", movies_path %><br /></h3>
-<h3><%= link_to "Genres", genres_path %><br /></h3>
+<h1><%= flash[:message] %></h1>
+
+<div class="ui four doubling cards">
+  <a class="card" href="/cities" >
+      <img src=<%= City.all.sample.thumbnail%> height="200" >
+    <div class="content">
+      <div class="ui centered header">Cities</div>
+        <div class="centered description">
+           <b><p align="center">Take a trip for a show</p></b>
+        </div>
+    </div>
+  </a>
+  <a class="card" href="/movietheatres" >
+      <img src=<%= MovieTheatre.all.sample.thumbnail%> height="200" >
+    <div class="content">
+      <div class="ui centered header">Movie Theatres</div>
+        <div class="centered description">
+           <b><p align="center">Come for the experience</p></b>
+           <b><p align="center">Stay for the snacks </p></b>
+        </div>
+    </div>
+  </a>
+  <a class="card" href="/movies" >
+      <img src=<%= Movie.all.sample.thumbnail%> height="200" >
+    <div class="content">
+      <div class="ui centered header">Movies</div>
+        <div class="description">
+         <b><p align="center">Find that perfect adventure </p></b>
+        </div>
+    </div>
+  </a>
+  <a class="card" href="/genres" >
+      <img src=<%= Movie.all.sample.thumbnail%> height="200" >
+    <div class="content">
+      <div class="ui centered header">Genres</div>
+      <div class="description">
+       <b><p align="center">What's your category?</p></b>
+      </div>
+    </div>
+  </a>
+</div>

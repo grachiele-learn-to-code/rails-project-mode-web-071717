@@ -1,39 +1,41 @@
 <img src=<%= @movie.full_image %> height="500" width="100%">
 <h1 align="center"><%= @movie.name %></h1>
 
-<div class="ui four centered doubling cards">
-  <% if !(@showtimes.empty?) %>
-      <% @showtimes.each do |showtime| %>
-      <div class="ui fluid card">
-          <img src=<%= showtime.movie_theatre.thumbnail%> height="200">
-          <div class="content">
-            <p class="ui centered header"><%= showtime.movie_theatre.name %></p>
-            <b>Date:</b> <%= showtime.show_date %><br>
-            <b>Showtime:</b> <%= showtime.start_time %><br />
-            <% if logged_in? %>
-          </div>
-              <% if showtime.tickets_left > 0 %>
-              <div class="ui labeled button" tabindex="0">
-                <%= form_for :ticket, options = {url: '/tickets', method: 'post'}  do |f| %>
-                  <%= f.hidden_field :user_id, :value => session[:user_id]%>
-                  <%= f.hidden_field :showtime_id, :value => showtime.id %>
-                  <div class="ui labeled button">
-                    <%= f.submit "Purchase Ticket", class: "ui black button" %>
-                    <%= f.label "Tickets Left: #{showtime.tickets_left}", class: "ui basic label" %>
-                  </div>
+<div class="card_padding">
+  <div class="ui four centered doubling cards">
+    <% if !(@showtimes.empty?) %>
+        <% @showtimes.each do |showtime| %>
+        <div class="ui fluid card">
+            <img src=<%= showtime.movie_theatre.thumbnail%> height="200">
+            <div class="content">
+              <p class="ui centered header"><%= showtime.movie_theatre.name %></p>
+              <b>Date:</b> <%= showtime.show_date %><br>
+              <b>Showtime:</b> <%= showtime.start_time %><br />
+              <% if logged_in? %>
+            </div>
+                <% if showtime.tickets_left > 0 %>
+                <div class="ui labeled button" tabindex="0">
+                  <%= form_for :ticket, options = {url: '/tickets', method: 'post'}  do |f| %>
+                    <%= f.hidden_field :user_id, :value => session[:user_id]%>
+                    <%= f.hidden_field :showtime_id, :value => showtime.id %>
+                    <div class="ui labeled button">
+                      <%= f.submit "Purchase Ticket", class: "ui black button" %>
+                      <%= f.label "Tickets Left: #{showtime.tickets_left}", class: "ui basic label" %>
+                    </div>
+                  <% end %>
+                </div>
+                <% else %>
+                  <p class="ui centered header">There's no more tickets left for this movie!</p>
                 <% end %>
-              </div>
-              <% else %>
-                <p class="ui centered header">There's no more tickets left for this movie!</p>
               <% end %>
-            <% end %>
-      <% end %>
+          </div>
+        <% end %>
+    <% else %>
+    <div class="ui fluid card">
+      <div class="ui centered header">
+        <%= "There are no showtimes available for this movie" %>
+      </div>
     </div>
-  <% else %>
-  <div class="ui fluid card">
-    <div class="ui centered header">
-      <%= "There are no showtimes available for this movie" %>
-    </div>
+    <% end %>
   </div>
-  <% end %>
 </div>

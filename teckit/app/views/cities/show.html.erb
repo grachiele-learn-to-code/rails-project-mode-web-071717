@@ -2,6 +2,7 @@
 
 <h1 align="center">Avaliable <%= @city.name %> Theatres</h1>
 
+<div class="card_padding">
   <div class="ui four centered doubling cards">
     <% @theatres.each do |theatre| %>
       <div class="ui fluid card">
@@ -15,3 +16,4 @@
         </div>
       <% end %>
   </div>
+</div>

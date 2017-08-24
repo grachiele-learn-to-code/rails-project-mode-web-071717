@@ -31,12 +31,7 @@
   <script src="../dist/components/transition.js"></script>
 
   <style type="text/css">
-    body {
-      background-color: #DADADA;
-    }
-    body > .grid {
-      height: 100%;
-    }
+
     .image {
       margin-top: -100px;
     }
@@ -85,58 +80,60 @@
 </head>
 <body>
 
-  <div class="ui middle aligned center aligned grid">
-    <div class="column">
+  <div class="ui center aligned grid">
+    <div class="ui column">
       <div class="content">
       </div>
-        <%= form_for @user, {class: "ui large form"} do |f| %>
-          <div class="ui stacked segment">
-            <h2 class="ui teal image header">
+        <%= form_for @user, {class: "ui huge form"} do |f| %>
+          <div class="ui raised padded black segment">
+            <h1 class="ui black image header">
               Tekcít
-            </h2><br />
-            <label><b>First Name:</b></label>
+            </h1><br />
+            <div class="fields">
+            <label><h3><b>First Name:</b></h3></label>
             <div class="field">
-              <div class="ui left icon input">
+              <div class="ui left icon fluid input">
                 <i class="user icon"></i>
                   <%= f.text_field :first_name, {required: true} %><br>
               </div>
             </div>
-            <label><b>Last Name:</b></label>
+            <label><h3><b>Last Name:</b></h3></label>
             <div class="field">
-              <div class="ui left icon input">
+              <div class="ui left icon fluid input">
                 <i class="user icon"></i>
                   <%= f.text_field :last_name, {required: true} %><br>
               </div>
             </div>
-            <label><b>Username:</b></label>
+            <label><h3><b>Username:</b></h3></label>
             <div class="field">
-              <div class="ui left icon input">
+              <div class="ui left icon fluid input">
                 <i class="user icon"></i>
                   <%= f.text_field :username, {required: true} %><br>
               </div>
             </div>
-            <label><b>Email:</b></label>
+            <label><h3><b>Email:</b></h3></label>
             <div class="field">
-              <div class="ui left icon input">
+              <div class="ui left icon fluid input">
                 <i class="user icon"></i>
                   <%= f.text_field :email, {required: true} %><br>
               </div>
             </div>
-          <label><b>Password:</b></label>
-          <div class="field">
-            <div class="ui left icon input">
+          <label><h3><b>Password:</b></h3></label>
+          <div class="ui field">
+            <div class="ui left icon fluid input">
               <i class="lock icon"></i>
                 <%= f.password_field :password, {required: true} %><br>
             </div>
           </div>
-          <label><b>Password Confirmation:</b></label>
+          <label><h3><b>Password Confirmation:</b></h3></label>
           <div class="field">
-            <div class="ui left icon input">
+            <div class="ui left icon fluid input">
               <i class="lock icon"></i>
                 <%= f.password_field :password_confirmation, {required: true} %><br>
             </div>
           </div>
-          <br /><%= submit_tag "Sign Up", class: "ui fluid large teal submit button" %>
+        </div>
+          <br /><%= submit_tag "Sign Up", class: "ui fluid large black submit button" %>
         <% end %>
         <div class="ui message">
           Already a member? <a href="<%= signin_path %>">Sign In</a>

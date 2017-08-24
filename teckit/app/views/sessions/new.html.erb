@@ -31,17 +31,12 @@
   <script src="../dist/components/transition.js"></script>
 
   <style type="text/css">
-    body {
-      background-color: #DADADA;
-    }
-    body > .grid {
-      height: 100%;
-    }
+
     .image {
       margin-top: -100px;
-    }
+  }
     .column {
-      max-width: 450px;
+      max-width: 600px;
     }
   </style>
   <script>
@@ -85,25 +80,25 @@
 </head>
 <body>
 
-  <div class="ui center aligned grid">
-    <div class="column">
+  <div class="ui center aligned page grid">
+    <div class="ui column">
       <div class="content">
       </div>
-        <%= form_tag signin_path, class: "ui large form" do %>
-          <div class="ui stacked segment">
+        <%= form_tag signin_path, {class: "ui huge form"} do %>
+          <div class="ui raised padded black segment">
             <h1 class="ui black image header">
               Tekcít
             </h1><br />
-            <label><b>Username:</b></label><br>
+            <label><h3><b>Username:</b></h3></label><br>
             <div class="field">
-              <div class="ui left icon input">
+              <div class="ui left icon fluid input">
                 <i class="user icon"></i>
                   <%= text_field_tag 'user[username]', nil, required: true %><br>
               </div>
             </div>
-          <label><b>Password:</b></label><br>
+          <label><h3><b>Password:</b></h3></label><br>
           <div class="field">
-            <div class="ui left icon input">
+            <div class="ui left icon fluid input">
               <i class="lock icon"></i>
                 <%= password_field_tag 'user[password]', nil, required: true %><br>
             </div>

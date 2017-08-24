@@ -1,17 +1,17 @@
-<img src=<%= @city.full_image%> height="500" width=100%>
+<img class="ui massive centered bordered rounded image" src=<%= @city.full_image%> >
 
 <h1 align="center">Avaliable <%= @city.name %> Theatres</h1>
 
-<div class="ui four doubling cards">
+<div class="ui four centered doubling cards">
   <% @theatres.each do |theatre| %>
     <div class="ui fluid card">
       <img src=<%= theatre.thumbnail%> height="200">
         <div class="content">
           <div class="ui centered header">
             <%= theatre.name %>
-            <%= button_to "See Available Movies", "/movietheatres/#{theatre.id}", {method: :get, class: "fluid ui black button"}  %>
           </div>
-        </div>
+          </div>
+            <%= button_to "See Available Movies", "/movietheatres/#{theatre.id}", {method: :get, class: "fluid ui black button"}  %>
       </div>
     <% end %>
 </div>

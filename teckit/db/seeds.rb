@@ -26,7 +26,7 @@ require 'ffaker'
 end
 
 10.times do
-  api = RestClient.get("https://wall.alphacoders.com/api2.0/get.php?auth=e624a59c6b8c30c4d361a70a7efc06db&method=sub_category&id=&id=118381&page=#{rand(1..20)}&info_level=2")
+  api = RestClient.get("https://wall.alphacoders.com/api2.0/get.php?auth=e624a59c6b8c30c4d361a70a7efc06db&method=by_collection&id=296&page=#{rand(1..20)}&info_level=2")
   data = JSON.parse(api)
   images = data["wallpapers"].sample
   City.create(name: FFaker::Address.city, full_image: images["url_image"], thumbnail: images["url_thumb"])
@@ -34,7 +34,7 @@ end
 
 50.times do
   theatre_option = %w(Theatre Cinemas)
-  api = RestClient.get("https://wall.alphacoders.com/api2.0/get.php?auth=e624a59c6b8c30c4d361a70a7efc06db&method=category&id=16&page=#{rand(1..20)}&info_level=2")
+  api = RestClient.get("https://wall.alphacoders.com/api2.0/get.php?auth=e624a59c6b8c30c4d361a70a7efc06db&method=sub_category&id=160328page=#{rand(1..20)}&info_level=2")
   data = JSON.parse(api)
   images = data["wallpapers"].sample
   MovieTheatre.create(name: FFaker::Company.name + " " + theatre_option.sample, city_id: City.all.sample.id, full_image: images["url_image"], thumbnail: images["url_thumb"])

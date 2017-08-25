@@ -14,12 +14,12 @@
             </div>
             <% if logged_in? %>
               <% if showtime.tickets_left > 0 %>
-              <div class="ui labeled button" tabindex="0">
+              <div class="fluid ui button" tabindex="0">
                 <%= form_for :ticket, options = {url: '/tickets', method: 'post'}  do |f| %>
                   <%= f.hidden_field :user_id, :value => session[:user_id]%>
                   <%= f.hidden_field :showtime_id, :value => showtime.id %>
-                  <div class="ui labeled button">
-                    <%= f.submit "Purchase Ticket", class: "ui black button" %>
+                  <div class="fluid ui labeled button">
+                    <%= f.submit "Purchase Ticket", class: "fluid ui black button" %>
                     <% if showtime.tickets_left > 7 %>
                       <%= f.label "Tickets Left: #{showtime.tickets_left}", class: "ui blue label" %>
                     <% elsif showtime.tickets_left < 7 && showtime.tickets_left > 3 %>

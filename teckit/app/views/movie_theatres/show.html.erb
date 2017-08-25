@@ -14,7 +14,6 @@
             </div>
             <% if logged_in? %>
               <% if showtime.tickets_left > 0 %>
-              <div class="fluid ui button" tabindex="0">
                 <%= form_for :ticket, options = {url: '/tickets', method: 'post'}  do |f| %>
                   <%= f.hidden_field :user_id, :value => session[:user_id]%>
                   <%= f.hidden_field :showtime_id, :value => showtime.id %>
@@ -29,15 +28,9 @@
                     <% end %>
                   </div>
                 <% end %>
-              </div>
               <% else %>
-                <div class="ui disabled labeled button" tabindex="0">
-                    <div class="ui black button">
+                  <div class="ui black disabled button">
                       Sold Out!
-                    </div>
-                    <div class="ui basic label">
-                      <%= "Tickets Left: #{showtime.tickets_left}" %>
-                    </div>
                   </div>
               <% end %>
             <% end %>

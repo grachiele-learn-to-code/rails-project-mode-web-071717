@@ -21,9 +21,9 @@
 
   <body>
     <div class="inverted ui menu">
-      <div class="header item"><%= link_to "Teckít", root_path %></div>
+      <div class="header item"><%= link_to "Tekcít", root_path %></div>
       <% if logged_in? %>
-        <%= link_to "Hello, #{User.find(session[:user_id]).first_name}", user_path(User.find(session[:user_id])), class: "item" %>
+        <%= link_to "Hello, #{User.find(session[:user_id]).first_name}!", user_path(User.find(session[:user_id])), class: "item" %>
         <div class="right menu">
           <%= link_to "Sign Out", signout_path, class: "item" %>
         </div>
@@ -34,8 +34,7 @@
           <%= link_to "Sign Up", signup_path, class: "item" %>
         </div>
       <% end %>
-  </div>
+    </div>
     <%= yield %>
   </body>
-  <br />
 </html>

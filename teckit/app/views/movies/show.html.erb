@@ -21,12 +21,25 @@
                     <%= f.hidden_field :showtime_id, :value => showtime.id %>
                     <div class="ui labeled button">
                       <%= f.submit "Purchase Ticket", class: "ui black button" %>
-                      <%= f.label "Tickets Left: #{showtime.tickets_left}", class: "ui basic label" %>
+                        <% if showtime.tickets_left > 7 %>
+                          <%= f.label "Tickets Left: #{showtime.tickets_left}", class: "ui blue label" %>
+                        <% elsif showtime.tickets_left < 7 && showtime.tickets_left > 3 %>
+                            <%= f.label "Tickets Left: #{showtime.tickets_left}", class: "ui yellow label" %>
+                        <% else %>
+                            <%= f.label "Tickets Left: #{showtime.tickets_left}", class: "ui red label" %>
+                        <% end %>
                     </div>
                   <% end %>
                 </div>
                 <% else %>
-                  <p class="ui centered header">There's no more tickets left for this movie!</p>
+                  <div class="ui disabled labeled button" tabindex="0">
+                      <div class="ui black button">
+                        Sold Out!
+                      </div>
+                      <div class="ui basic label">
+                        <%= "Tickets Left: #{showtime.tickets_left}" %>
+                      </div>
+                    </div>
                 <% end %>
               <% end %>
           </div>

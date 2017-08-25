@@ -12,6 +12,13 @@ class TicketsController < ApplicationController
     redirect_to user_path(@ticket.user)
   end
 
+  def destroy
+    @ticket = Ticket.find(params[:id])
+    @user = User.find(@ticket.user_id)
+    @ticket.destroy
+    redirect_to user_path(@user)
+  end
+
   private
 
     def ticket_params

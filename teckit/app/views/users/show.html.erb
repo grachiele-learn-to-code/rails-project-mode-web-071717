@@ -14,6 +14,9 @@
             <b>Plays at:</b> <%= showtime.start_time %><br />
             <b>Date:</b> <%= showtime.show_date %><br />
         </div>
+          <%= form_for ticket, method: :delete do |f| %>
+            <%= f.submit "Delete Ticket", class: "fluid ui bottom attached red button" %>
+          <% end %>
       </div>
       <% end %>
     <% else %>

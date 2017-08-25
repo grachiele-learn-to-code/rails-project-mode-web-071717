@@ -24,15 +24,6 @@ class UsersController < ApplicationController
     @tickets = Ticket.all.select { |ticket| ticket.user_id == @user.id}
   end
 
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
-  end
-
   private
 
     def user_params

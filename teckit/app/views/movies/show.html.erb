@@ -22,7 +22,7 @@
                     <%= f.submit "Purchase Ticket", class: "fluid ui black button" %>
                     <% if showtime.tickets_left > 7 %>
                       <%= f.label "Tickets Left: #{showtime.tickets_left}", class: "ui blue label" %>
-                    <% elsif showtime.tickets_left < 7 && showtime.tickets_left > 3 %>
+                    <% elsif showtime.tickets_left <= 7 && showtime.tickets_left > 3 %>
                         <%= f.label "Tickets Left: #{showtime.tickets_left}", class: "ui yellow label" %>
                     <% else %>
                         <%= f.label "Tickets Left: #{showtime.tickets_left}", class: "ui red label" %>
